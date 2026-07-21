@@ -52,7 +52,7 @@ body {
   z-index: 1;
 }
 
-/* Layout Pantalla 1 */
+/* Layout Pantalla 1: Centra el contenido completamente */
 .welcome-content {
   position: relative;
   z-index: 2;
@@ -62,21 +62,15 @@ body {
   margin: 0 auto;
   padding: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center; /* Centra el título en medio verticalmente */
   align-items: center;
 }
 
-/* Título Delgado en el Centro */
-.center-title-box {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
+/* Título Delgado en el Centro Geométrico */
 .welcome-title {
   font-family: 'Great Vibes', cursive;
-  font-size: 3.8rem;
-  font-weight: 300; /* Cursiva más delgada y elegante */
+  font-size: 4rem;
+  font-weight: 300; /* Cursiva delgada */
   margin: 0;
   text-align: center;
   line-height: 1.2;
@@ -84,8 +78,12 @@ body {
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* Sobre Gris Estilizado (Sin Rojo, Sin Amarillo) */
+/* Sobre Gris Flotando Abajo */
 .envelope-card-bottom {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(240, 240, 240, 0.25); /* Gris traslúcido cristal */
   color: #ffffff;
   padding: 16px 20px;
@@ -93,15 +91,14 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s;
-  width: 100%;
+  width: calc(100% - 40px);
   max-width: 280px;
   backdrop-filter: blur(8px);
-  margin-bottom: 35px;
-  border: 1.5 solid rgba(255, 255, 255, 0.5);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
 }
 
 .envelope-card-bottom:hover {
-  transform: translateY(-4px);
+  transform: translateX(-50%) translateY(-4px);
   background: rgba(255, 255, 255, 0.35);
 }
 
