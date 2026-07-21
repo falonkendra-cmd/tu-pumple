@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tarjeta de Cumpleaños</title>
+  <title>¡Feliz Cumpleaños!</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div id="envelope-screen" class="screen active">
-    <div class="envelope-card" onclick="openEnvelope()">
-      <div class="wax-seal">🦕</div>
-      <h2>¡Tienes un mensaje!</h2>
-      <p class="tap-hint">Haz clic en el sello para abrir</p>
+  <div id="envelope-screen" class="screen active full-bg">
+    <div class="overlay"></div>
+
+    <div class="welcome-content">
+      <h1 class="welcome-title">Feliz Cumpleaños</h1>
+
+      <div class="envelope-card" onclick="openEnvelope()">
+        <div class="wax-seal">🦕</div>
+        <h2>Tienes una sorpresa</h2>
+        <p class="tap-hint">Haz clic en el sello para abrir</p>
+      </div>
     </div>
   </div>
 
@@ -23,11 +29,11 @@
     <div class="menu-grid">
       <div class="card-item" onclick="showModal('modal-message')">
         <div class="icon">✉️</div>
-        <h3>Mensaje</h3>
+        <h3>Carta</h3>
       </div>
 
       <div class="card-item" onclick="showModal('modal-flower')">
-        <div class="icon">💐</div>
+        <div class="icon">🌸</div>
         <h3>Flores</h3>
       </div>
 
@@ -39,11 +45,12 @@
   </div>
 
   <div id="modal-message" class="modal">
-    <div class="modal-content paper-bg">
+    <div class="modal-content paper-bg large-modal">
       <span class="close-btn" onclick="closeModal('modal-message')">&times;</span>
-      <h2>¡Feliz Dino-Cumpleaños! 🎉</h2>
+      <h2>¡Feliz Cumpleaños, mi amor! 🎉</h2>
+      
       <div class="dino-avatar">
-        <svg viewBox="0 0 200 160" width="120" height="100">
+        <svg viewBox="0 0 200 160" width="130" height="110">
           <path d="M 40 90 Q 30 30 100 20 Q 170 30 160 90 Z" fill="#88D49E" />
           <ellipse cx="100" cy="95" rx="50" ry="45" fill="#A2E8DD" />
           <circle cx="80" cy="85" r="5" fill="#2C3E50" />
@@ -53,20 +60,25 @@
           <polygon points="95,105 100,85 105,105" fill="#FFF8DC" />
         </svg>
       </div>
-      <p>!Hola mi niña hermosa! Vengo a desearte un muy feliz cumpleaños y a decirte lo mucho que te amo. Agradezco tanto que hace 24 años
+
+      <div class="letter-body">
+        <p>!Hola mi niña hermosa! Vengo a desearte un muy feliz cumpleaños y a decirte lo mucho que te amo. Agradezco tanto que hace 24 años
       vinieras a este mundo y que la vida me diera la oportunidad de no solo conocerte, sino de ser la persona de la que estás enamorada, 
       la persona con la que puedes estar horas en una cama acostadas, la persona que con la que quieres comer waffles a las 10 de la mañana, 
-      con la que puedes comr tortas ahogadas, la persona con la que comes pizza y ala que llenas de besitos. </p>
+      con la que puedes comer tortas ahogadas, la persona con la que comes pizza y a la que llenas de besitos.</p>
+        <p>Deseo con todo mi corazón que este nuevo año de vida esté lleno de sueños cumplidos, éxito y muchísima felicidad. ¡Eres una persona totalmente única!</p>
+        <p class="letter-signature">Con todo mi amor ❤️</p>
+      </div>
     </div>
   </div>
 
   <div id="modal-flower" class="modal">
-    <div class="modal-content">
+    <div class="modal-content pink-theme">
       <span class="close-btn" onclick="closeModal('modal-flower')">&times;</span>
-      <h2>Flores para ti 🌻</h2>
+      <h2>Flores rosas para ti 🌸</h2>
       <div class="flower-box">
-        <span class="big-emoji">💐🌿🌸</span>
-        <p>Un detalle especial para alegrar tu día.</p>
+        <span class="big-pink-flowers">🌸 🌺 🌷 🌸</span>
+        <p>Un ramito de flores rosas especiales para alegrar tu día tanto como tú alegras el mío. 💕</p>
       </div>
     </div>
   </div>
@@ -74,10 +86,10 @@
   <div id="modal-music" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal('modal-music')">&times;</span>
-      <h2>Esta canción es muy nuestra 🎶</h2>
-      <p>¡Dale play para celebrar!</p>
+      <h2>Esta canción es para ti 🎶</h2>
+      <p>¡Dale play al video!</p>
       <div class="video-container">
-        <iframe width="100%" height="200" src="https://youtu.be/j-KM7NXsPos?si=ypmYHKn4bl_bsPJK" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="100%" height="220" src="https://www.youtube.com/embed/j-KM7NXsPos" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -96,7 +108,6 @@
       document.getElementById(id).style.display = 'none';
     }
 
-    // Cerrar ventana si hacen clic afuera de la caja
     window.onclick = function(event) {
       if (event.target.classList.contains('modal')) {
         event.target.style.display = "none";
