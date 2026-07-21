@@ -127,8 +127,8 @@
       <p>Toca cada globo para descubrir tu sorpresa de cumpleaños:</p>
       
       <div class="balloon-box">
-        <div class="balloon-item" onclick="popBalloon(this, '✨ ¡Vale por una cena de pizza!')">🎈</div>
-        <div class="balloon-item" onclick="popBalloon(this, '🧇 ¡Vale por waffles a las 10:00 AM!')">🎈</div>
+        <div class="balloon-item" onclick="popBalloon(this, '✨ ¡Vale por comer lo que tu quieras!')">🎈</div>
+        <div class="balloon-item" onclick="popBalloon(this, '🧇 ¡Vale por hacerte el postre que más te guste!')">🎈</div>
         <div class="balloon-item" onclick="popBalloon(this, '💋 ¡Vale por 1,000 besitos seguidos!')">🎈</div>
         <div class="balloon-item" onclick="popBalloon(this, '👑 ¡Hoy tú mandas todo el día!')">🎈</div>
       </div>
@@ -156,14 +156,14 @@
       <span class="close-btn" onclick="closeModal('modal-vip')">&times;</span>
       <h2>👑 Pase Oficial de Cumpleañera VIP</h2>
       <div class="vip-card">
-        <p><strong>Otorgado a:</strong> La niña más hermosa 💖</p>
-        <p><strong>Edad:</strong> 24 añotes maravillosos ✨</p>
+        <p><strong>Otorgado a:</strong> La niña más preciosa del mundo 💖</p>
+        <p><strong>Edad:</strong> 24 maravillosos añotes ✨</p>
         <p><strong>Privilegios ilimitados por hoy:</strong></p>
         <ul class="vip-list">
-          <li>✅ No lavar trastes ni hacer esfuerzo</li>
-          <li>✅ Elección total de la comida y películas</li>
+          <li>✅ No pagar nada hoy (muy en serio)</li>
+          <li>✅ Elección total de la comida y películas (pero si puede ser una de barbie estaría padre)</li>
           <li>✅ Dosis ilimitadas de besitos y apapachos</li>
-          <li>✅ Comer waffles y postres sin culpa</li>
+          <li>✅ Hacer nuestra sesión de fotitos</li>
         </ul>
       </div>
     </div>
@@ -173,7 +173,7 @@
   <div id="modal-music" class="modal">
     <div class="modal-content large-modal">
       <span class="close-btn" onclick="closeModal('modal-music')">&times;</span>
-      <h2>Esta canción es para ti 🎶</h2>
+      <h2>Esta canción es muy nuestra 🎶</h2>
       <p>¡Dale play al video!</p>
       
       <!-- Canción Principal -->
@@ -184,13 +184,13 @@
       <!-- Botón para revelar la Canción Sorpresa Dedicada -->
       <div class="dedicated-section">
         <button id="surprise-music-btn" class="action-btn secret-btn" onclick="toggleDedicatedSong()">
-          💖 Canción Sorpresa Especial
+          💖 Canción Sorpresa 
         </button>
 
         <!-- Bloque oculto con "Monet - Nsqk" -->
         <div id="dedicated-song-box" class="dedicated-box" style="display: none;">
           <p class="dedication-text">
-            ✨ <em>Te dedico especialmente esta canción porque me hace pensar en ti en cada segundo y me recuerda lo afortunada que soy de tenerte.</em> ✨
+            ✨ <em>Quiero dedicarte especialmente esta canción porque me hace pensar en ti en cada segundo y me recuerda lo afortunada que soy de tenerte.</em> ✨
           </p>
           <div class="video-container">
             <iframe width="100%" height="200" src="https://www.youtube.com/embed/DOpXXS4whlE" title="Nsqk - Monet" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -303,7 +303,7 @@
       const giftHint = document.getElementById('gift-hint');
       const resetBtn = document.getElementById('reset-gift-btn');
       
-      giftEmoji.innerText = '🎉✨ waffles & tortas ahogadas ✨🎉';
+      giftEmoji.innerText = '🎉✨ Haré todo lo que tú quieras. De verdad todo ✨🎉';
       giftHint.innerHTML = '<strong>¡Tu verdadero regalo te espera hoy!</strong><br>Prepárate para ser consentida todo el día. 💕';
       resetBtn.style.display = 'inline-block';
       
