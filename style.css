@@ -14,7 +14,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Manejo de Pantallas */
+/* Pantallas */
 .screen {
   display: none;
   width: 100%;
@@ -28,7 +28,7 @@ body {
   animation: fadeIn 0.6s ease;
 }
 
-/* Pantalla 1: Foto Completa (nosotros.jpg) */
+/* Foto de Fondo (nosotros.jpg) */
 .full-bg {
   position: fixed;
   top: 0;
@@ -48,11 +48,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.45);
   z-index: 1;
 }
 
-/* Contenido centrado y empujado verticalmente */
+/* Layout Pantalla 1 */
 .welcome-content {
   position: relative;
   z-index: 2;
@@ -60,71 +60,77 @@ body {
   max-width: 420px;
   height: 100vh;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Pone el título arriba y el sobre bien abajo */
+  justify-content: space-between;
   align-items: center;
+}
+
+/* Título Delgado en el Centro */
+.center-title-box {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .welcome-title {
   font-family: 'Great Vibes', cursive;
   font-size: 3.8rem;
-  margin-top: 20px;
-  margin-bottom: 0;
+  font-weight: 300; /* Cursiva más delgada y elegante */
+  margin: 0;
   text-align: center;
   line-height: 1.2;
-  background: linear-gradient(45deg, #ffe066, #f5af19, #fff2a3, #e6ac00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.8));
+  color: #ffffff;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* Sobre Minimalista colocado abajo */
+/* Sobre Gris Estilizado (Sin Rojo, Sin Amarillo) */
 .envelope-card-bottom {
-  background: rgba(211, 47, 47, 0.92);
-  color: white;
+  background: rgba(240, 240, 240, 0.25); /* Gris traslúcido cristal */
+  color: #ffffff;
   padding: 16px 20px;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s;
   width: 100%;
-  max-width: 290px;
-  backdrop-filter: blur(5px);
-  margin-bottom: 30px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  max-width: 280px;
+  backdrop-filter: blur(8px);
+  margin-bottom: 35px;
+  border: 1.5 solid rgba(255, 255, 255, 0.5);
 }
 
 .envelope-card-bottom:hover {
-  transform: translateY(-4px) scale(1.02);
-  background: rgba(198, 40, 40, 0.98);
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.35);
 }
 
+/* Sello Blanco */
 .wax-seal {
-  font-size: 2rem;
-  background: #ffc107;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  font-size: 1.8rem;
+  background: #ffffff;
+  color: #333;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
   border-radius: 50%;
-  margin: 0 auto 6px auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  margin: 0 auto 8px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .envelope-card-bottom h2 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin: 4px 0 2px 0;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .tap-hint {
   font-size: 0.8rem;
-  opacity: 0.9;
+  opacity: 0.85;
   margin: 0;
 }
 
-/* Pantalla 2: Fondo Crema + Emojis de Pastel flotantes */
+/* Pantalla 2: Banderines + Pasteles */
 .cake-bg-screen {
   background-color: #fff8e7;
   position: relative;
@@ -133,6 +139,21 @@ body {
   overflow: hidden;
 }
 
+/* Guirnalda/Banderines colgados arriba */
+.garland-banner {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.6rem;
+  z-index: 3;
+  padding: 5px 0;
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.08);
+}
+
+/* Patrón de Pasteles sutil de fondo */
 .cake-pattern {
   position: absolute;
   top: 0; left: 0;
@@ -141,11 +162,10 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-around;
-  opacity: 0.18; /* Transparencia elegante para no estorbar el texto */
+  opacity: 0.15;
   font-size: 2.2rem;
   pointer-events: none;
   z-index: 1;
-  padding: 10px;
 }
 
 .main-content-wrapper {
@@ -160,6 +180,7 @@ body {
   font-family: 'Fredoka One', cursive;
   color: #2e7d32;
   font-size: 2.2rem;
+  margin-top: 40px;
   margin-bottom: 30px;
 }
 
@@ -291,10 +312,10 @@ body {
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Adaptación Celular */
+/* Celular */
 @media (max-width: 480px) {
   .welcome-title {
-    font-size: 3.1rem;
+    font-size: 3.2rem;
   }
   
   .menu-grid {
