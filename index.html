@@ -25,24 +25,31 @@
   </div>
 
   <div id="main-screen" class="screen cake-bg-screen">
-    <div class="cake-emoji-pattern">🎂 ✨ 🎂 ✨ 🎂 ✨ 🎂</div>
-
-    <h1 class="main-title">Esto es para ti 🌿</h1>
     
-    <div class="menu-grid">
-      <div class="card-item" onclick="showModal('modal-message')">
-        <div class="icon">✉️</div>
-        <h3>Carta</h3>
-      </div>
+    <div class="cake-pattern">
+      <span>🎂</span><span>✨</span><span>🎂</span><span>✨</span><span>🎂</span>
+      <span>✨</span><span>🎂</span><span>✨</span><span>🎂</span><span>✨</span>
+      <span>🎂</span><span>✨</span><span>🎂</span><span>✨</span><span>🎂</span>
+    </div>
 
-      <div class="card-item" onclick="showModal('modal-flower')">
-        <div class="icon">🌸</div>
-        <h3>Flores</h3>
-      </div>
+    <div class="main-content-wrapper">
+      <h1 class="main-title">Esto es para ti 🌿</h1>
+      
+      <div class="menu-grid">
+        <div class="card-item" onclick="showModal('modal-message')">
+          <div class="icon">✉️</div>
+          <h3>Carta</h3>
+        </div>
 
-      <div class="card-item" onclick="showModal('modal-music')">
-        <div class="icon">🎵</div>
-        <h3>Música</h3>
+        <div class="card-item" onclick="showModal('modal-flower')">
+          <div class="icon">🌸</div>
+          <h3>Flores</h3>
+        </div>
+
+        <div class="card-item" onclick="showModal('modal-music')">
+          <div class="icon">🎵</div>
+          <h3>Música</h3>
+        </div>
       </div>
     </div>
   </div>
@@ -96,11 +103,10 @@
 
   <script>
     function openEnvelope() {
-      // Disparar confeti de fiesta al abrir
       if (typeof confetti === 'function') {
         confetti({
-          particleCount: 100,
-          spread: 70,
+          particleCount: 120,
+          spread: 80,
           origin: { y: 0.6 }
         });
       }
