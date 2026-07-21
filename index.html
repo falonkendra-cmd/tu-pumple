@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dino-Tarjeta de Cumpleaños</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="envelope-screen" class="screen active">
+    <div class="envelope-card" onclick="openEnvelope()">
+      <div class="wax-seal">🦕</div>
+      <h2>¡Tienes un mensaje jurásico!</h2>
+      <p class="tap-hint">Haz clic en el sello para abrir</p>
+    </div>
+  </div>
+
+  <div id="main-screen" class="screen">
+    <h1 class="main-title">Esto es para ti 🌿</h1>
+    
+    <div class="menu-grid">
+      <div class="card-item" onclick="showModal('modal-message')">
+        <div class="icon">✉️</div>
+        <h3>Mensaje</h3>
+      </div>
+
+      <div class="card-item" onclick="showModal('modal-flower')">
+        <div class="icon">💐</div>
+        <h3>Flores</h3>
+      </div>
+
+      <div class="card-item" onclick="showModal('modal-music')">
+        <div class="icon">🎵</div>
+        <h3>Música</h3>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-message" class="modal">
+    <div class="modal-content paper-bg">
+      <span class="close-btn" onclick="closeModal('modal-message')">&times;</span>
+      <h2>¡Feliz Dino-Cumpleaños! 🎉</h2>
+      <div class="dino-avatar">
+        <svg viewBox="0 0 200 160" width="120" height="100">
+          <path d="M 40 90 Q 30 30 100 20 Q 170 30 160 90 Z" fill="#88D49E" />
+          <ellipse cx="100" cy="95" rx="50" ry="45" fill="#A2E8DD" />
+          <circle cx="80" cy="85" r="5" fill="#2C3E50" />
+          <circle cx="120" cy="85" r="5" fill="#2C3E50" />
+          <polygon points="65,70 50,30 75,60" fill="#FFF8DC" />
+          <polygon points="135,70 150,30 125,60" fill="#FFF8DC" />
+          <polygon points="95,105 100,85 105,105" fill="#FFF8DC" />
+        </svg>
+      </div>
+      <p>Espero que tengas un día gigantesco lleno de sonrisas, pastel y momentos especiales. ¡Eres una persona Tricera-top!</p>
+    </div>
+  </div>
+
+  <div id="modal-flower" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-flower')">&times;</span>
+      <h2>Un ramo gigante para ti 🌻</h2>
+      <div class="flower-box">
+        <span class="big-emoji">💐🌿🌸</span>
+        <p>Un detalle especial para alegrar tu día.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-music" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-music')">&times;</span>
+      <h2>Esta canción me recuerda a ti 🎶</h2>
+      <p>¡Dale play para celebrar!</p>
+      <div class="video-container">
+        <iframe width="100%" height="200" src="https://www.youtube.com/embed/gCYcTMg9vqM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openEnvelope() {
+      document.getElementById('envelope-screen').classList.remove('active');
+      document.getElementById('main-screen').classList.add('active');
+    }
+
+    function showModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    // Cerrar ventana si hacen clic afuera de la caja
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
