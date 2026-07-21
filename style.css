@@ -35,7 +35,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('nosotras.jpg');
+  background-image: url('nosotros.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -52,7 +52,7 @@ body {
   z-index: 1;
 }
 
-/* Layout Pantalla 1: Centra el contenido completamente */
+/* Layout Pantalla 1 */
 .welcome-content {
   position: relative;
   z-index: 2;
@@ -62,15 +62,14 @@ body {
   margin: 0 auto;
   padding: 20px;
   display: flex;
-  justify-content: center; /* Centra el título en medio verticalmente */
+  justify-content: center;
   align-items: center;
 }
 
-/* Título Delgado en el Centro Geométrico */
 .welcome-title {
   font-family: 'Great Vibes', cursive;
   font-size: 4rem;
-  font-weight: 300; /* Cursiva delgada */
+  font-weight: 300;
   margin: 0;
   text-align: center;
   line-height: 1.2;
@@ -78,13 +77,12 @@ body {
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
-/* Sobre Gris Flotando Abajo */
 .envelope-card-bottom {
   position: absolute;
   bottom: 35px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(240, 240, 240, 0.25); /* Gris traslúcido cristal */
+  background: rgba(240, 240, 240, 0.25);
   color: #ffffff;
   padding: 16px 20px;
   border-radius: 20px;
@@ -102,7 +100,6 @@ body {
   background: rgba(255, 255, 255, 0.35);
 }
 
-/* Sello Blanco */
 .wax-seal {
   font-size: 1.8rem;
   background: #ffffff;
@@ -127,7 +124,7 @@ body {
   margin: 0;
 }
 
-/* Pantalla 2: Banderines + Pasteles */
+/* Pantalla 2 */
 .cake-bg-screen {
   background-color: #fff8e7;
   position: relative;
@@ -136,7 +133,6 @@ body {
   overflow: hidden;
 }
 
-/* Guirnalda/Banderines colgados arriba */
 .garland-banner {
   position: absolute;
   top: 10px;
@@ -150,7 +146,6 @@ body {
   border-bottom: 2px dashed rgba(0, 0, 0, 0.08);
 }
 
-/* Patrón de Pasteles sutil de fondo */
 .cake-pattern {
   position: absolute;
   top: 0; left: 0;
@@ -169,7 +164,7 @@ body {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 420px;
+  max-width: 440px;
   padding: 20px;
 }
 
@@ -178,44 +173,44 @@ body {
   color: #2e7d32;
   font-size: 2.2rem;
   margin-top: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
+/* Menú en cuadrícula de 2 columnas */
 .menu-grid {
-  display: flex;
-  justify-content: space-around;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
   width: 100%;
 }
 
 .card-item {
   background: white;
-  border-radius: 20px;
-  padding: 22px 10px;
-  flex: 1;
+  border-radius: 18px;
+  padding: 16px 10px;
   cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  border: 3px solid #88d49e;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  border: 2px solid #88d49e;
   transition: transform 0.2s;
 }
 
 .card-item:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .card-item .icon {
-  font-size: 2.5rem;
-  margin-bottom: 8px;
+  font-size: 2.2rem;
+  margin-bottom: 5px;
 }
 
 .card-item h3 {
   font-family: 'Fredoka One', cursive;
   color: #388e3c;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
-/* Modales */
+/* Modales y Contenido Cumpleañero */
 .modal {
   display: none;
   position: fixed;
@@ -267,19 +262,96 @@ body {
   margin-top: 20px;
 }
 
+/* Pastel y Vela */
+.cake-container {
+  font-size: 4.5rem;
+  margin: 15px 0;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.flame {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  animation: flicker 0.6s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1.15); opacity: 0.8; }
+}
+
+.action-btn {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Globos */
+.balloon-box {
+  display: flex;
+  justify-content: space-around;
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+.balloon-item {
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.pop-message {
+  font-weight: bold;
+  color: #d81b60;
+  font-size: 1.1rem;
+  min-height: 30px;
+}
+
+/* Regalo */
+.gift-box-icon {
+  font-size: 4.5rem;
+  cursor: pointer;
+  margin: 15px 0;
+  transition: transform 0.3s;
+}
+
+.gift-box-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Pase VIP */
 .pink-theme {
   border: 3px solid #ffb6c1;
   background: #fff5f7;
 }
 
-.pink-theme h2 {
-  color: #d81b60;
+.vip-card {
+  text-align: left;
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px dashed #ffb6c1;
+  margin-top: 15px;
 }
 
-.big-pink-flowers {
-  font-size: 3.2rem;
-  display: block;
-  margin: 15px 0;
+.vip-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.vip-list li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
 }
 
 .close-btn {
@@ -298,7 +370,6 @@ body {
   margin-top: 15px;
 }
 
-/* Animaciones */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -307,21 +378,4 @@ body {
 @keyframes popIn {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
-}
-
-/* Celular */
-@media (max-width: 480px) {
-  .welcome-title {
-    font-size: 3.2rem;
-  }
-  
-  .menu-grid {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .large-modal {
-    width: 92%;
-    padding: 20px;
-  }
 }
