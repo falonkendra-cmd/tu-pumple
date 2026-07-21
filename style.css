@@ -28,14 +28,14 @@ body {
   animation: fadeIn 0.6s ease;
 }
 
-/* Foto de Fondo (nosotras.jpg) */
+/* Foto de Fondo (nosotros.jpg) */
 .full-bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('nosotras.jpg');
+  background-image: url('nosotros.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -176,7 +176,7 @@ body {
   margin-bottom: 25px;
 }
 
-/* Menú en cuadrícula de 2 columnas */
+/* Menú en cuadrícula */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -210,7 +210,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* Modales y Contenido Cumpleañero */
+/* Modales */
 .modal {
   display: none;
   position: fixed;
@@ -237,7 +237,7 @@ body {
 
 .large-modal {
   max-width: 460px;
-  padding: 30px 22px;
+  padding: 25px 20px;
   max-height: 85vh;
   overflow-y: auto;
 }
@@ -262,7 +262,7 @@ body {
   margin-top: 20px;
 }
 
-/* Pastel y Vela */
+/* Vela */
 .cake-container {
   font-size: 4.5rem;
   margin: 15px 0;
@@ -317,16 +317,61 @@ body {
   min-height: 30px;
 }
 
-/* Regalo */
+/* Regalo Sorpresa */
 .gift-box-icon {
-  font-size: 4.5rem;
+  font-size: 3.8rem;
   cursor: pointer;
-  margin: 15px 0;
+  margin: 10px 0;
   transition: transform 0.3s;
 }
 
 .gift-box-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
+}
+
+.small-text {
+  font-size: 0.88rem;
+  color: #555;
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+.reset-icon-btn {
+  background: #eeeeee;
+  color: #555;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: 12px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.reset-icon-btn:hover {
+  background: #e0e0e0;
+}
+
+/* Música y Canción Dedicada */
+.secret-btn {
+  background: linear-gradient(135deg, #e91e63, #ff4081);
+  margin-top: 18px;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.dedicated-box {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px dashed #ffb6c1;
+  animation: fadeIn 0.4s ease;
+}
+
+.dedication-text {
+  font-size: 0.88rem;
+  color: #c2185b;
+  line-height: 1.5;
+  margin-bottom: 12px;
 }
 
 /* Pase VIP */
@@ -367,7 +412,7 @@ body {
 .video-container {
   border-radius: 12px;
   overflow: hidden;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 @keyframes fadeIn {
