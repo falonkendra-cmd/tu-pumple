@@ -3,7 +3,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #a8e6cf 0%, #dbede3 100%);
+  background: #fff8e7;
   font-family: 'Quicksand', sans-serif;
   min-height: 100vh;
   margin: 0;
@@ -25,12 +25,13 @@ body {
 .screen.active {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   animation: fadeIn 0.6s ease;
+  min-height: 100vh;
 }
 
-/* FOTO DE FONDO COMPLETA (Asegúrate de que la foto en GitHub se llame foto.jpg) */
+/* FOTO DE FONDO COMPLETA CON NOSOTROS.JPG */
 .full-bg {
   position: fixed;
   top: 0;
@@ -43,16 +44,16 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   z-index: 10;
+  padding: 40px 20px;
 }
 
-/* Capa translúcida para contrastar el texto */
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
@@ -61,18 +62,20 @@ body {
   z-index: 2;
   width: 100%;
   max-width: 420px;
-  padding: 20px;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  margin: 0 auto;
 }
 
-/* Texto Dorado Cursiva */
+/* Título Dorado Cursiva */
 .welcome-title {
   font-family: 'Great Vibes', cursive;
-  font-size: 3.8rem;
-  margin-bottom: 25px;
+  font-size: 4rem;
+  margin-top: 30px;
+  margin-bottom: 0;
   text-align: center;
   line-height: 1.2;
   background: linear-gradient(45deg, #ffe066, #f5af19, #fff2a3, #e6ac00);
@@ -81,38 +84,41 @@ body {
   filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.8));
 }
 
-/* Sobre Inicial */
-.envelope-card {
+/* Sobre Estilizado Abajo */
+.envelope-card-bottom {
   background: rgba(211, 47, 47, 0.92);
   color: white;
-  padding: 25px 20px;
-  border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  padding: 18px 25px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s;
   width: 100%;
-  max-width: 320px;
-  backdrop-filter: blur(4px);
+  max-width: 310px;
+  backdrop-filter: blur(5px);
+  margin-bottom: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-.envelope-card:hover {
-  transform: translateY(-5px) scale(1.02);
+.envelope-card-bottom:hover {
+  transform: translateY(-5px) scale(1.03);
+  background: rgba(198, 40, 40, 0.98);
 }
 
 .wax-seal {
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   background: #ffc107;
-  width: 65px;
-  height: 65px;
-  line-height: 65px;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
   border-radius: 50%;
-  margin: 0 auto 12px auto;
+  margin: 0 auto 8px auto;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.envelope-card h2 {
-  font-size: 1.1rem;
-  margin: 10px 0 5px 0;
+.envelope-card-bottom h2 {
+  font-size: 1.15rem;
+  margin: 5px 0 3px 0;
   font-weight: 700;
 }
 
@@ -122,12 +128,30 @@ body {
   margin: 0;
 }
 
-/* Menú Principal */
+/* PANTALLA 2: Fondo con Pasteles */
+.cake-bg-screen {
+  background: #fff8e7;
+  position: relative;
+  overflow: hidden;
+}
+
+.cake-emoji-pattern {
+  position: absolute;
+  top: 15px;
+  width: 100%;
+  font-size: 1.6rem;
+  opacity: 0.3;
+  letter-spacing: 10px;
+  user-select: none;
+}
+
 .main-title {
   font-family: 'Fredoka One', cursive;
   color: #2e7d32;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  margin-top: 45px;
   margin-bottom: 30px;
+  z-index: 2;
 }
 
 .menu-grid {
@@ -135,15 +159,17 @@ body {
   justify-content: space-around;
   gap: 15px;
   width: 100%;
+  z-index: 2;
+  margin-bottom: 40px;
 }
 
 .card-item {
   background: white;
-  border-radius: 18px;
-  padding: 20px 10px;
+  border-radius: 20px;
+  padding: 22px 10px;
   flex: 1;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
   border: 3px solid #88d49e;
   transition: transform 0.2s;
 }
@@ -161,10 +187,10 @@ body {
   font-family: 'Fredoka One', cursive;
   color: #388e3c;
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
-/* Modales / Ventanas Emergentes */
+/* Modales */
 .modal {
   display: none;
   position: fixed;
@@ -189,12 +215,11 @@ body {
   animation: popIn 0.3s ease;
 }
 
-/* Estilo Carta Grande */
 .large-modal {
-  max-width: 460px; /* Carta más ancha */
-  padding: 30px 25px;
+  max-width: 460px;
+  padding: 30px 22px;
   max-height: 85vh;
-  overflow-y: auto; /* Permite scroll si la pantalla es pequeña */
+  overflow-y: auto;
 }
 
 .paper-bg {
@@ -206,7 +231,7 @@ body {
   text-align: left;
   color: #4a4a4a;
   line-height: 1.6;
-  font-size: 1.05rem;
+  font-size: 1rem;
   margin-top: 15px;
 }
 
@@ -217,7 +242,6 @@ body {
   margin-top: 20px;
 }
 
-/* Estilo Flores Rosas */
 .pink-theme {
   border: 3px solid #ffb6c1;
   background: #fff5f7;
@@ -260,15 +284,16 @@ body {
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Adaptación para Celular */
+/* Adaptación Celular */
 @media (max-width: 480px) {
   .welcome-title {
-    font-size: 3rem;
+    font-size: 3.2rem;
+    margin-top: 20px;
   }
   
   .menu-grid {
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
   }
 
   .large-modal {
