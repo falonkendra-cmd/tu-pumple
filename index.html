@@ -36,7 +36,7 @@
     </div>
 
     <div class="main-content-wrapper">
-      <h1 class="main-title">Esto es para ti 🌿</h1>
+      <h1 class="main-title">¡Modo Cumpleaños! 🌿🎉</h1>
       
       <div class="menu-grid">
         <div class="card-item" onclick="showModal('modal-message')">
@@ -44,9 +44,24 @@
           <h3>Carta</h3>
         </div>
 
-        <div class="card-item" onclick="showModal('modal-flower')">
-          <div class="icon">🌸</div>
-          <h3>Flores</h3>
+        <div class="card-item" onclick="showModal('modal-candle'); initCandle();">
+          <div class="icon">🕯️</div>
+          <h3>Sopla la Vela</h3>
+        </div>
+
+        <div class="card-item" onclick="showModal('modal-balloons')">
+          <div class="icon">🎈</div>
+          <h3>Globos</h3>
+        </div>
+
+        <div class="card-item" onclick="showModal('modal-gift')">
+          <div class="icon">🎁</div>
+          <h3>Sorpresa</h3>
+        </div>
+
+        <div class="card-item" onclick="showModal('modal-vip')">
+          <div class="icon">👑</div>
+          <h3>Pase VIP</h3>
         </div>
 
         <div class="card-item" onclick="showModal('modal-music')">
@@ -82,13 +97,64 @@
     </div>
   </div>
 
-  <div id="modal-flower" class="modal">
+  <div id="modal-candle" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-candle')">&times;</span>
+      <h2>¡Pide un deseo! 🎂</h2>
+      <p id="candle-status">Sopla al micrófono de tu celular o toca la llama para apagarla ✨</p>
+      
+      <div class="cake-container" onclick="extinguishCandle()">
+        <div class="cake-illustration">
+          🎂
+          <div id="flame" class="flame">🔥</div>
+        </div>
+      </div>
+
+      <button id="mic-btn" class="action-btn" onclick="startMicDetection()">🎤 Activar Micrófono para Soplar</button>
+    </div>
+  </div>
+
+  <div id="modal-balloons" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-balloons')">&times;</span>
+      <h2>¡Revienta tus globos! 🎈</h2>
+      <p>Toca cada globo para descubrir tu sorpresa de cumpleaños:</p>
+      
+      <div class="balloon-box">
+        <div class="balloon-item" onclick="popBalloon(this, '✨ ¡Vale por una cena de pizza!')">🎈</div>
+        <div class="balloon-item" onclick="popBalloon(this, '🧇 ¡Vale por waffles a las 10:00 AM!')">🎈</div>
+        <div class="balloon-item" onclick="popBalloon(this, '💋 ¡Vale por 1,000 besitos seguidos!')">🎈</div>
+        <div class="balloon-item" onclick="popBalloon(this, '👑 ¡Hoy tú mandas todo el día!')">🎈</div>
+      </div>
+      <div id="balloon-message" class="pop-message"></div>
+    </div>
+  </div>
+
+  <div id="modal-gift" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-gift')">&times;</span>
+      <h2>Tu Regalo Sorpresa 🎁</h2>
+      <div class="gift-box-icon" onclick="openGiftBox()">
+        <span id="gift-emoji">🎁</span>
+      </div>
+      <p id="gift-hint">Haz clic en el regalo para abrirlo</p>
+    </div>
+  </div>
+
+  <div id="modal-vip" class="modal">
     <div class="modal-content pink-theme">
-      <span class="close-btn" onclick="closeModal('modal-flower')">&times;</span>
-      <h2>Flores rosas para ti 🌸</h2>
-      <div class="flower-box">
-        <span class="big-pink-flowers">🌸 🌺 🌷 🌸</span>
-        <p>Un ramito de flores rosas especiales para alegrar tu día tanto como tú alegras el mío. 💕</p>
+      <span class="close-btn" onclick="closeModal('modal-vip')">&times;</span>
+      <h2>👑 Pase Oficial de Cumpleañera VIP</h2>
+      <div class="vip-card">
+        <p><strong>Otorgado a:</strong> La niña más hermosa 💖</p>
+        <p><strong>Edad:</strong> 24 añotes maravillosos ✨</p>
+        <p><strong>Privilegios ilimitados por hoy:</strong></p>
+        <ul class="vip-list">
+          <li>✅ No lavar trastes ni hacer esfuerzo</li>
+          <li>✅ Elección total de la comida y películas</li>
+          <li>✅ Dosis ilimitadas de besitos y apapachos</li>
+          <li>✅ Comer waffles y postres sin culpa</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -107,13 +173,8 @@
   <script>
     function openEnvelope() {
       if (typeof confetti === 'function') {
-        confetti({
-          particleCount: 120,
-          spread: 80,
-          origin: { y: 0.6 }
-        });
+        confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
       }
-
       document.getElementById('envelope-screen').classList.remove('active');
       document.getElementById('main-screen').classList.add('active');
     }
@@ -129,6 +190,90 @@
     window.onclick = function(event) {
       if (event.target.classList.contains('modal')) {
         event.target.style.display = "none";
+      }
+    }
+
+    // --- LÓGICA VELA Y MICRÓFONO ---
+    let candleBlown = false;
+    let micStream = null;
+
+    function initCandle() {
+      candleBlown = false;
+      const flame = document.getElementById('flame');
+      if(flame) flame.style.display = 'block';
+      document.getElementById('candle-status').innerText = 'Sopla al micrófono de tu celular o toca la llama para apagarla ✨';
+    }
+
+    function extinguishCandle() {
+      if (candleBlown) return;
+      candleBlown = true;
+      const flame = document.getElementById('flame');
+      if (flame) flame.style.display = 'none';
+      document.getElementById('candle-status').innerText = '🎉 ¡Pediste tu deseo! ¡Que se cumpla muy pronto! 🎂✨';
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 150, spread: 100, origin: { y: 0.5 } });
+      }
+    }
+
+    async function startMicDetection() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        micStream = stream;
+        document.getElementById('mic-btn').innerText = '🎙️ ¡Escuchando! Sopla fuerte al micro...';
+        
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const analyser = audioContext.createAnalyser();
+        const microphone = audioContext.createMediaStreamSource(stream);
+        microphone.connect(analyser);
+        analyser.fftSize = 256;
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        function checkBlowing() {
+          if (candleBlown) return;
+          analyser.getByteFrequencyData(dataArray);
+          let sum = 0;
+          for (let i = 0; i < bufferLength; i++) {
+            sum += dataArray[i];
+          }
+          let average = sum / bufferLength;
+          if (average > 45) { // Detección de soplo de aire
+            extinguishCandle();
+            stopMic();
+          } else {
+            requestAnimationFrame(checkBlowing);
+          }
+        }
+        checkBlowing();
+      } catch (err) {
+        document.getElementById('mic-btn').innerText = '❌ Toca la vela para apagarla';
+      }
+    }
+
+    function stopMic() {
+      if (micStream) {
+        micStream.getTracks().forEach(track => track.stop());
+      }
+    }
+
+    // --- LÓGICA GLOBOS ---
+    function popBalloon(element, message) {
+      element.style.transform = 'scale(0)';
+      element.style.opacity = '0';
+      document.getElementById('balloon-message').innerText = message;
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 40, spread: 60, origin: { y: 0.6 } });
+      }
+    }
+
+    // --- LÓGICA REGALO ---
+    function openGiftBox() {
+      const giftEmoji = document.getElementById('gift-emoji');
+      const giftHint = document.getElementById('gift-hint');
+      giftEmoji.innerText = '🎉✨ waffles & tortas ahogadas ✨🎉';
+      giftHint.innerHTML = '<strong>¡Tu verdadero regalo te espera hoy!</strong><br>Prepárate para ser consentida todo el día. 💕';
+      if (typeof confetti === 'function') {
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
       }
     }
   </script>
