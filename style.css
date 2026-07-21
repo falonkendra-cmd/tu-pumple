@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Control de pantallas */
+/* Pantallas */
 .screen {
   display: none;
   width: 100%;
@@ -30,7 +30,7 @@ body {
   animation: fadeIn 0.6s ease;
 }
 
-/* Pantalla de inicio: Imagen de fondo a pantalla completa */
+/* FOTO DE FONDO COMPLETA (Asegúrate de que la foto en GitHub se llame foto.jpg) */
 .full-bg {
   position: fixed;
   top: 0;
@@ -38,14 +38,14 @@ body {
   width: 100vw;
   height: 100vh;
   max-width: 100% !important;
-  background-image: url('nosotras.jpg'); /* Asegúrate de que tu foto en GitHub se llame foto.jpg */
+  background-image: url('nosotras.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   z-index: 10;
 }
 
-/* Capa oscura transparente para dar contraste */
+/* Capa translúcida para contrastar el texto */
 .overlay {
   position: absolute;
   top: 0;
@@ -56,7 +56,6 @@ body {
   z-index: 1;
 }
 
-/* Contenido de bienvenida centrado */
 .welcome-content {
   position: relative;
   z-index: 2;
@@ -69,23 +68,20 @@ body {
   justify-content: center;
 }
 
-/* Título dorado cursiva en el centro */
+/* Texto Dorado Cursiva */
 .welcome-title {
   font-family: 'Great Vibes', cursive;
   font-size: 3.8rem;
   margin-bottom: 25px;
   text-align: center;
   line-height: 1.2;
-  
-  /* Gradiente dorado metálico */
   background: linear-gradient(45deg, #ffe066, #f5af19, #fff2a3, #e6ac00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  
-  filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.7));
+  filter: drop-shadow(2px 4px 10px rgba(0,0,0,0.8));
 }
 
-/* Tarjeta del Sobre */
+/* Sobre Inicial */
 .envelope-card {
   background: rgba(211, 47, 47, 0.92);
   color: white;
@@ -126,7 +122,7 @@ body {
   margin: 0;
 }
 
-/* Pantalla Menú (Pantalla 2) */
+/* Menú Principal */
 .main-title {
   font-family: 'Fredoka One', cursive;
   color: #2e7d32;
@@ -174,17 +170,17 @@ body {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   justify-content: center;
   align-items: center;
   z-index: 100;
-  padding: 20px;
+  padding: 15px;
 }
 
 .modal-content {
   background: white;
-  padding: 30px 20px;
-  border-radius: 20px;
+  padding: 25px 20px;
+  border-radius: 22px;
   max-width: 380px;
   width: 100%;
   position: relative;
@@ -193,9 +189,48 @@ body {
   animation: popIn 0.3s ease;
 }
 
+/* Estilo Carta Grande */
+.large-modal {
+  max-width: 460px; /* Carta más ancha */
+  padding: 30px 25px;
+  max-height: 85vh;
+  overflow-y: auto; /* Permite scroll si la pantalla es pequeña */
+}
+
 .paper-bg {
   background: #fffdf0;
   border: 2px dashed #d4c598;
+}
+
+.letter-body {
+  text-align: left;
+  color: #4a4a4a;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  margin-top: 15px;
+}
+
+.letter-signature {
+  text-align: right;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-top: 20px;
+}
+
+/* Estilo Flores Rosas */
+.pink-theme {
+  border: 3px solid #ffb6c1;
+  background: #fff5f7;
+}
+
+.pink-theme h2 {
+  color: #d81b60;
+}
+
+.big-pink-flowers {
+  font-size: 3.2rem;
+  display: block;
+  margin: 15px 0;
 }
 
 .close-btn {
@@ -206,12 +241,6 @@ body {
   font-weight: bold;
   color: #888;
   cursor: pointer;
-}
-
-.big-emoji {
-  font-size: 4rem;
-  display: block;
-  margin: 15px 0;
 }
 
 .video-container {
@@ -231,7 +260,7 @@ body {
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Adaptación para pantallas de Celulares */
+/* Adaptación para Celular */
 @media (max-width: 480px) {
   .welcome-title {
     font-size: 3rem;
@@ -240,5 +269,10 @@ body {
   .menu-grid {
     flex-direction: column;
     gap: 12px;
+  }
+
+  .large-modal {
+    width: 92%;
+    padding: 20px;
   }
 }
